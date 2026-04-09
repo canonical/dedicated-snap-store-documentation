@@ -27,7 +27,7 @@ Dedicated Snap Store
 
    * - Getting Started
      - :doc:`Create an Ubuntu Core image <tutorial/create-ubuntu-core-image>` •
-       :doc:`Configure Serial Vault <how-to/configure-serial-vault>` •
+       :doc:`How-to: Configure Model Service <how-to/configure-model-service>` •
        :doc:`Configuration values <reference/configuration-values>`
    * - Security and Access Control
      - :doc:`Dedicated Snap Store security <explanation/security>` •
