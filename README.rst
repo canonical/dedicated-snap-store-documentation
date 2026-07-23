@@ -1,5 +1,5 @@
-Dedicated Snap Store Documentation
-==================================
+Dedicated Snap Store
+====================
 
 Product page: https://ubuntu.com/internet-of-things/appstore
 Documentation: https://ubuntu.com/internet-of-things/appstore/docs/
