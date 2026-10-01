@@ -171,3 +171,29 @@ if (document.body) {
 } else {
   document.addEventListener('DOMContentLoaded', init);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Listen for fetch requests to the RTD Search API
+  const originalFetch = window.fetch;
+  window.fetch = async function () {
+    const response = await originalFetch.apply(this, arguments);
+    if (arguments[0] && arguments[0].includes("/_/api/v")) {
+      const clone = response.clone();
+      const data = await clone.json();
+      
+      // Prefix all search result paths with your proxy subpath
+      if (data.results) {
+        data.results.forEach(result => {
+          if (result.path && !result.path.startsWith(new_path)) {
+            result.path = new_path + result.path;
+          }
+        });
+      }
+      return new Response(JSON.stringify(data), {
+        status: response.status,
+        headers: response.headers
+      });
+    }
+    return response;
+  };
+});
