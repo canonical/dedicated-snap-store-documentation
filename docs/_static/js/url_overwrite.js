@@ -3,6 +3,7 @@
 const rtd_address = 'canonical-brand-store.readthedocs-hosted.com';
 const new_address = 'ubuntu.com/internet-of-things/appstore/docs';
 const new_path = '/' + new_address.split('/').slice(1).join('/');
+const new_origin = `https://${new_address.split('/')[0]}`;
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -172,28 +173,58 @@ if (document.body) {
   document.addEventListener('DOMContentLoaded', init);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Listen for fetch requests to the RTD Search API
-  const originalFetch = window.fetch;
-  window.fetch = async function () {
-    const response = await originalFetch.apply(this, arguments);
-    if (arguments[0] && arguments[0].includes("/_/api/v")) {
-      const clone = response.clone();
-      const data = await clone.json();
-      
-      // Prefix all search result paths with your proxy subpath
-      if (data.results) {
-        data.results.forEach(result => {
-          if (result.path && !result.path.startsWith(new_path)) {
-            result.path = new_path + result.path;
-          }
-        });
-      }
-      return new Response(JSON.stringify(data), {
-        status: response.status,
-        headers: response.headers
-      });
+function isReadTheDocsSearchRequest(request) {
+  const url = typeof request === 'string' ? request : request?.url;
+  if (!url) return false;
+
+  return new URL(url, window.location.href).pathname === '/_/api/v3/search/';
+}
+
+function rewriteSearchResult(result) {
+  if (!result?.path?.startsWith('/') || result.path.startsWith(new_path)) {
+    return;
+  }
+
+  // The RTD search addon builds a same-project link from `result.path`, but
+  // constructs a cross-project link as `result.domain + result.path`. Prefix
+  // the path in both cases and replace the RTD origin for cross-project hits.
+  result.path = new_path + result.path;
+
+  if (!result.domain) return;
+
+  try {
+    if (new URL(result.domain).hostname === rtd_address) {
+      result.domain = new_origin;
     }
+  } catch {
+    // Leave unexpected domain values unchanged; the addon will handle them.
+  }
+}
+
+// The search addon fetches `/_/api/v3/search/` and renders links from the
+// returned `path` (or `domain + path` for another project). Rewrite those API
+// fields before the addon receives the response so it produces proxy URLs.
+const originalFetch = window.fetch;
+window.fetch = async function (...args) {
+  const response = await originalFetch.apply(this, args);
+  if (!isReadTheDocsSearchRequest(args[0])) return response;
+
+  try {
+    const data = await response.clone().json();
+    if (!Array.isArray(data.results)) return response;
+
+    data.results.forEach(rewriteSearchResult);
+
+    const headers = new Headers(response.headers);
+    headers.delete('content-encoding');
+    headers.delete('content-length');
+    return new Response(JSON.stringify(data), {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  } catch {
+    // Do not interfere with an unexpected or non-JSON API response.
     return response;
-  };
-});
+  }
+};
