@@ -45,7 +45,7 @@ For detailed instructions, see `gadget building <https://ubuntu.com/core/docs/ga
 For this specific case of validating the initial store setup, let's use the
 :guilabel:`64-bit PC Gadget Snap`.
 
-.. TOOD: make snapcraft track programmable based on UC release?
+.. TODO: make snapcraft track programmable based on UC release?
 
 .. terminal::
     :user: user
@@ -122,6 +122,12 @@ Register the gadget snap name in your Base store and push the initial revision:
     channels.
     Please check the errors and some hints below:
       - (NEEDS REVIEW) type 'gadget' not allowed
+
+For how automatic and manual reviews work, see
+:doc:`/how-to/restrictions-reviews-and-support`.
+
+To register additional snaps to your Base store, see
+:doc:`/how-to/develop-with-a-dedicated-snap-store`.
 
 At this point, you should add a `collaborator <https://snapcraft.io/docs/store-brand-accounts>`_
 to the gadget snap and logout of the Brand account. A good choice for such an
@@ -263,6 +269,8 @@ to get the ``{{CUSTOMER_STORE_PREFIX}}``-pc snap's snap ID and fill the
 Ensure that all snaps listed in the model assertion are available in the
 ``{{CUSTOMER_DEVICEVIEW_NAME}}`` store. If they are not, you must `include them <https://documentation.ubuntu.com/dedicated-snap-store/explanation/snap-inclusion/>`_.
 
+.. _image-creation-credentials:
+
 Creating the image
 ------------------
 
@@ -295,6 +303,8 @@ above, we must explicitly include it in the image.
 .. terminal::
 
 	UBUNTU_STORE_AUTH=$(cat store.auth) ubuntu-image snap --snap console-conf {{CUSTOMER_MODEL_NAME}}-model.assert
+
+.. _launching-and-verifying-the-image:
 
 Launching and verifying the image
 ---------------------------------
