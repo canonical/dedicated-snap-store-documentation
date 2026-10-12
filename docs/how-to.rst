@@ -17,6 +17,7 @@ have a Dedicated Snap Store, and you are interested in purchasing one,
         :doc:`Administer your store <how-to/administer-your-store>`
         :doc:`Develop with a Dedicated Snap Store <how-to/develop-with-a-dedicated-snap-store>`
         :doc:`Set up account roles <how-to/setting-up-account-roles>`
+        :doc:`Register a role-scoped key <how-to/register-role-scoped-key>`
 
     .. slice:: APIs and device management
 
