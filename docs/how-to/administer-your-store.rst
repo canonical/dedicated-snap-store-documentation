@@ -39,7 +39,7 @@ Curate the Device View catalog
 
 Devices whose model assertion names this Device View store can then see the
 snap. Removing it from the Device View catalog removes its visibility there,
-it does not delete the source snap. For automation, use
+it does not delete the source snap or remove it from devices. For automation, use
 :doc:`/how-to/use-the-store-api`.
 
 Manage members and reviews
@@ -50,7 +50,7 @@ privilege. Store administration requires **Admin**, publishing and review use
 their respective roles.
 
 Review uploads at
-https://dashboard.snapcraft.io/reviewer/{{CUSTOMER_STORE_ID}}/. Gadget uploads
+https://dashboard.snapcraft.io/reviewer/{{CUSTOMER_STORE_ID}}/. Gadget uploads may
 require manual review. See :doc:`/how-to/restrictions-reviews-and-support`.
 
 Monitor use and get help

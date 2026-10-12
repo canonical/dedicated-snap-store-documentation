@@ -30,7 +30,7 @@ Prerequisites
 
      sudo snap install --classic --channel=8.x/stable snapcraft
 
-* Run ``snapcraft login`` with an account that has **Publisher** or higher level permissions.
+* Run ``snapcraft login`` with an account that has **Publisher** permissions.
 * Know your Dedicated Snap Store ID, which is required for registering snap
   names and making track requests.
 

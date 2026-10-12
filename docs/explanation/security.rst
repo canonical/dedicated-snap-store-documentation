@@ -116,22 +116,22 @@ registered with the Model Service in a hardware-identity assertion. During
 registration, the device signs a Model Service nonce with this private key.
 This proves the device identity without sending a shared model API key.
 
-Key compromise and recovery
+Key compromise risk mitigation
 ---------------------------
 
 The impact of a key compromise depends on the key's role:
 
-* **Device key:** An attacker that obtains a device private key can impersonate
+* Device key: An attacker that obtains a device private key can impersonate
   that device. Keep device keys hardware-backed and protect the device with
   full-disk encryption.
-* **Model signing key:** An attacker that obtains this private key can sign
+* Model signing key: An attacker that obtains this private key can sign
   model assertions. Protect it with a passphrase, store it in a restricted
   location or HSM, and grant access only when needed. Recovery options for a
   compromised model signing key can be limited.
-* **Model API key:** Because it is included in the gadget snap, it can be
+* Model API key: Because it is included in the gadget snap, it can be
   extracted from an image. Prefer hardware-identity onboarding over relying on
   this shared credential for device authentication.
-* **Serial signing key:** An attacker that obtains this private key could issue
+* Serial signing key: An attacker that obtains this private key could issue
   serial assertions and authorize devices to access the store. Generate or
   upload this key only in the Model Service, its private material must not be
   exported or shared.

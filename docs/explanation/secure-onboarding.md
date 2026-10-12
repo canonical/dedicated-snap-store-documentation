@@ -49,7 +49,7 @@ Dedicated Snap Store authenticates the keys and authorizes the device.
 On the device, use `snap model --assertion` to check the expected model and
 `snap model --serial --assertion` to confirm that a serial assertion was
 obtained. The [Ubuntu Core image tutorial](../tutorial/create-ubuntu-core-image.rst)
-shows the expected checks.
+shows the expected outputs.
 
 Remodeling is constrained to models that use the same device-provisioning
 authority. See [remodeling Ubuntu Core devices](https://documentation.ubuntu.com/core/explanation/remodeling/)

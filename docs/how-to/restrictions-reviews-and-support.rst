@@ -22,8 +22,7 @@ intervention. Automatic review checks each upload. If the output contains
 revision before it can be released.
 
 For supported self-serve interfaces, a Reviewer can use the snap dashboard's
-``Review capabilities`` interface to enable an automatic connection. The
-Reviewer must not also be the snap's Publisher or Collaborator. Other
+``Review capabilities`` interface to enable an automatic connection. Other
 interfaces follow the upstream `snapd interface policy
 <https://snapcraft.io/docs/interface-management>`_.
 
