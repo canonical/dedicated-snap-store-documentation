@@ -117,7 +117,7 @@ registration, the device signs a Model Service nonce with this private key.
 This proves the device identity without sending a shared model API key.
 
 Key compromise risk mitigation
----------------------------
+------------------------------
 
 The impact of a key compromise depends on the key's role:
 
