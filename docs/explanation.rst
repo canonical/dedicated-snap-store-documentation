@@ -1,10 +1,6 @@
 .. meta::
     :description: Explanation of Dedicated Snap Store concepts and architecture, including custom application stores for software distribution across device fleets with secure over-the-air updates.
 
-..  This page is intended to serve as the main navigation page for Explanation
-    documents. See https://diataxis.fr/explanation/ for more information, or
-    contact secondskoll (or the TA team) on Mattermost.
-
 Explanation
 ===========
 
@@ -18,24 +14,19 @@ use cases. It is the private, enterprise equivalent of the global Snap Store.
 The following documents provide more information on Dedicated Snap Stores,
 including information on interfaces and general store security.
 
-.. list-table::
+.. domain:: Dedicated Snap Store concepts
 
-    * - :doc:`explanation/base-stores-and-device-view-stores`
-      - What are the differences between base stores and device view stores?
-    * - :doc:`explanation/brand-accounts`
-      - What is a brand account?
-    * - :doc:`explanation/connecting-devices`
-      - How does my device connect to my Dedicated Snap Store?
-    * - :doc:`explanation/controlling-updates`
-      - Are there different ways to control updates on devices connected to my store?
-    * - :doc:`explanation/managing-an-app-store`
-      - What snaps can I include, and can I monitor devices?
-    * - :doc:`explanation/security`
-      - What credentials does my store contain, and how are they managed?
-    * - :doc:`explanation/snap-inclusion`
-      - Can I decide what snaps are available in my store?
-    * - :doc:`explanation/snapd-interface-connections`
-      - What snapd interfaces are available to me when publishing to a Dedicated Snap Store?
+    .. slice:: Dedicated Snap Store concepts
+
+        :doc:`Base Stores and Device View Stores <explanation/base-stores-and-device-view-stores>`
+        :doc:`Brand accounts <explanation/brand-accounts>`
+        :doc:`Managing a Dedicated Snap Store <explanation/managing-an-app-store>`
+        :doc:`Dedicated Snap Store security <explanation/security>`
+
+    .. slice:: Related Ubuntu Core and snapd topics
+
+        :doc:`Secure onboarding <explanation/secure-onboarding>`
+        :doc:`Controlling updates <explanation/controlling-updates>`
 
 .. rubric:: Helpful resources
 

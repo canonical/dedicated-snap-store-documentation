@@ -109,11 +109,14 @@ Adding a new template variable
 ==============================
 
 New template variables can be created by adding the variable and its default
-value to ``templates/TEMPLATE.yaml``. For example, to add a ``CUSTOMER_TITLE``
-variable to a page, first add a new line to ``TEMPLATE.yaml``: ``CUSTOMER_TITLE:
-"NULL"``.
+value to ``templates/TEMPLATE.yaml``. Customer values are defined in the
+corresponding template. For example, ``templates/acme-alpha.yaml`` defines the
+Acme Alpha example store with entries including:
 
-Then, add a new line to any templates corresponding to Dedicated Snap
-Stores that require the new variable with the desired value (for example,
-``CUSTOMER_TITLE: "Dr."``). The variable can then be used in the corresponding
-document like any other variable (by wrapping the variable in ``{{}}``)
+.. code-block:: yaml
+
+    CUSTOMER_STORE_ID: "acme-store"
+    CUSTOMER_STORE_NAME: "Alpha 3"
+
+Variables can then be used in pages by wrapping the variable name in ``{{}}``,
+for example, ``{{CUSTOMER_STORE_NAME}}``.

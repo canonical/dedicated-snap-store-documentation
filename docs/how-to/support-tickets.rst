@@ -16,6 +16,8 @@ File a support ticket
 
 Several key activities require some intervention from Canonical. These
 types of requests are done via the `Canonical Support Portal Dashboard <https://support-portal.canonical.com/dashboard>`_.
+For an overview of release permissions, reviews, and which requests need a
+ticket, see :doc:`/how-to/restrictions-reviews-and-support`.
 
 Below are some things which require intervention, along with an example request.
 
@@ -88,4 +90,3 @@ only has access to the software and infrastructure it requires to function.
 	have targetted inclusion of my Base store {{CUSTOMER_STORE_NAME}}, ID {{CUSTOMER_STORE_ID}}.
 
 	The model name associated with this Device View store is <model name>.
-

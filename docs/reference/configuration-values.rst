@@ -37,8 +37,8 @@ Accounts and roles
 Ubuntu SSO accounts underpin developer interactions with the various Stores. To
 understand accounts and roles, read:
 
-* `Ubuntu SSO Accounts <https://documentation.ubuntu.com/dedicated-snap-store/explanation/ubuntu-sso-accounts/>`_
-* `Setting up account roles <https://documentation.ubuntu.com/dedicated-snap-store/how-to/setting-up-account-roles>`_
+* :doc:`Brand accounts </explanation/brand-accounts>`
+* :doc:`Setting up account roles </how-to/setting-up-account-roles>`
 
 Your store has been provisioned with the following IDs and roles:
 

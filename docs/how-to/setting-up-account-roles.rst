@@ -22,7 +22,7 @@ SSO email, assigning roles as needed.
 To update permissions for already added accounts, select or deselect the
 corresponding tick boxes.
 
-Ensure you have reviewed the `roles <https://documentation.ubuntu.com/dedicated-snap-store/how-to/setting-up-account-roles>`_
+Ensure you have reviewed the `roles <https://documentation.ubuntu.com/core/explanation/stores/brand-accounts/#roles>`_
 and have covered the appropriate permissions for each account. You should ensure the following roles are set for each store:
 
 * Base Store
